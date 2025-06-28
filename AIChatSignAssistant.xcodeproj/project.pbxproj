@@ -6,8 +6,15 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		088886F12E101CCD00C54A5C /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088886F02E101CCD00C54A5C /* Message.swift */; };
+		088886F32E101CF000C54A5C /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088886F22E101CF000C54A5C /* File.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		088886E02E10174000C54A5C /* AIChatSignAssistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AIChatSignAssistant.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		088886F02E101CCD00C54A5C /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		088886F22E101CF000C54A5C /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -34,6 +41,7 @@
 			children = (
 				088886E22E10174000C54A5C /* AIChatSignAssistant */,
 				088886E12E10174000C54A5C /* Products */,
+				088886EF2E101CB200C54A5C /* Models */,
 			);
 			sourceTree = "<group>";
 		};
@@ -43,6 +51,15 @@
 				088886E02E10174000C54A5C /* AIChatSignAssistant.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		088886EF2E101CB200C54A5C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				088886F02E101CCD00C54A5C /* Message.swift */,
+				088886F22E101CF000C54A5C /* File.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -119,6 +136,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				088886F12E101CCD00C54A5C /* Message.swift in Sources */,
+				088886F32E101CF000C54A5C /* File.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
