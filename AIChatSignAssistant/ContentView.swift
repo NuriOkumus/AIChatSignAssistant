@@ -1,24 +1,32 @@
-//
-//  ContentView.swift
-//  AIChatSignAssistant
-//
-//  Created by Nuri Okumuş on 28.06.2025.
-//
+import Foundation
+import Combine
 
-import SwiftUI
+class ChatViewModel: ObservableObject {
+    @Published var messages: [Message] = []
+    private let apiClient: APIClient
 
-struct ContentView: View {
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+    init() {
+        // Info.plist’ten alıyoruz
+        let key = Bundle.main.object(forInfoDictionaryKey: "GeminiAPIKey") as? String ?? ""
+        self.apiClient = APIClient(apiKey: key)
     }
-}
 
-#Preview {
-    ContentView()
+    func send(_ text: String) {
+        // Kullanıcı mesajı
+        messages.append(Message(text: text, isUser: true))
+
+        // Asenkron API çağrısı
+        Task {
+            do {
+                let reply = try await apiClient.send(prompt: text)
+                DispatchQueue.main.async {
+                    self.messages.append(Message(text: reply, isUser: false))
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    self.messages.append(Message(text: "Error: \(error.localizedDescription)", isUser: false))
+                }
+            }
+        }
+    }
 }
